@@ -1,4 +1,4 @@
-# Lab-1
+# Lab 1
 
 Rendu du Lab 1
 
