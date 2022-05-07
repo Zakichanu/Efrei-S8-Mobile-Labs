@@ -14,6 +14,8 @@
         android:layout_marginBottom="2dp"
         android:layout_marginStart="87dp"
         android:orientation="horizontal"
+        android:divider="@drawable/empty_divider"
+        android:showDividers="middle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -22,28 +24,20 @@
             android:layout_width="123dp"
             android:layout_height="40dp"
             android:hint="@string/operation"
-            android:textColorHint="@color/teal_700"
             android:textColor="@color/purple_500"
             android:textSize="20sp"
-            android:fontFamily="monospace" />
-        <TextView
-            android:id="@+id/equalSign"
-            android:layout_width="20dp"
+            android:background="@drawable/back"
             android:textAlignment="center"
-            android:layout_height="40dp"
-            android:text="@string/Equal"
-            android:textColor="@color/purple_700"
-            android:textSize="20sp"
-            android:fontFamily="monospace"/>
+            android:fontFamily="monospace" />
 
         <TextView
             android:id="@+id/resultText"
-            android:layout_width="153dp"
+            android:layout_width="80dp"
             android:layout_height="40dp"
             android:hint="@string/result"
-            android:textColorHint="@color/teal_700"
             android:textColor="@color/purple_500"
             android:textSize="20sp"
+            android:background="@drawable/back"
             android:fontFamily="monospace" />
 
     </LinearLayout>
