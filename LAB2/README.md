@@ -6,4 +6,4 @@ NB : pour ceux qui ne sont pas à l'aise avec le Java et l'android, je vous cons
  - [Activity xml](https://github.com/Zakichanu/Efrei-S8-Mobile-Labs/blob/master/LAB2/app/src/main/res/layout/activity_main.xml)
  - [Calculator java](https://github.com/Zakichanu/Efrei-S8-Mobile-Labs/blob/master/LAB2/app/src/main/java/fr/android/calculator/CalculatorActivity.java)
 
- > Zak et Yanis (comme la lab 1 mais ça le dérange pas) 
+ > Zak et Yanis (comme le Lab 1 mais ça le dérange pas) 
