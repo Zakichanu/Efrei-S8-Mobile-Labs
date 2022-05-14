@@ -17,4 +17,5 @@
     <string name="_0">0</string>
     <string name="Div">/</string>
     <string name="Equal">=</string>
+    <string name="LoadingText">Appuyer sur le bouton "=" pour lancer le calcul</string>
 </resources>

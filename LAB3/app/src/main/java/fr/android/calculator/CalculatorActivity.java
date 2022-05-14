@@ -3,6 +3,7 @@ package fr.android.calculator;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 public class CalculatorActivity extends AppCompatActivity {
     private Handler handler;
     private ProgressBar progressBar;
+    private TextView loadingText;
     private int errorCode;
 
 
@@ -31,6 +33,9 @@ public class CalculatorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         handler = new Handler();
         progressBar = findViewById(R.id.progressBar1);
+        loadingText = findViewById(R.id.loadingText);
+
+
     }
     /**
      *
@@ -194,6 +199,7 @@ public class CalculatorActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void progressBarHandler(View view) {
         try {
+            downloadTask dt = new downloadTask();
             /*
             * This code is here to make us able to understand handlers. In this case, we are using a handler to progress the progressBar,
             * this one will add a new value of the progressBar to the MessageQueue. Then, a thread will loop into this messageQueue
@@ -214,11 +220,50 @@ public class CalculatorActivity extends AppCompatActivity {
                     }
                 }
             };
+            // We create a new thread to run the progressBar
             new Thread(runnable).start();
+
+            // Call asyncTask to change the loading textfield
+            dt.execute("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
 
         }catch (Exception e) {
             e.getMessage();
         }
+    }
 
+    /**
+     * @description: This function will be called when the user click on the equal button
+     *
+     * To Explain:
+     *  - This task is mainly called when the user click on the equal button.
+     *  - We put in it some string params to pass a count to loop into the task.
+     *  - Then, in the loop, for each count, we will add a new value to a Queue (in publishProgress method) that we are going to work with.
+     *  - After in the onProgressUpdate, we will change the text of the textfield with the value of the first element of the queue and then after
+     *  the task will pop it from it.
+     *  - After all the process, when the task is finished, we will call the onPostExecute function -> to trigger after the resultHandler function.
+     * */
+    private class downloadTask extends AsyncTask<String, Integer, Long> {
+        protected Long doInBackground(String... purcentage) {
+            int count = purcentage.length;
+            long totalSize = 0;
+            for (int i = 0; i <= count; i++) {
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                // Publish progress will send to onProgressUpdate method the new value to print on the UI
+                publishProgress((int) ((i / (float) count) * 10));
+            }
+
+            return totalSize;
+        }
+        protected void onProgressUpdate(Integer... p) {
+            loadingText.setText((p[0] * 10) + "%");
+        }
+        protected void onPostExecute(Long result) {
+            Toast.makeText(CalculatorActivity.this, "Finished",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 }
