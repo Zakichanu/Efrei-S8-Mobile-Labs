@@ -3,6 +3,7 @@ package fr.android.calculator;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -199,12 +200,13 @@ public class CalculatorActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void progressBarHandler(View view) {
         try {
-            downloadTask dt = new downloadTask();
+            calculateTask dt = new calculateTask();
             /*
             * This code is here to make us able to understand handlers. In this case, we are using a handler to progress the progressBar,
             * this one will add a new value of the progressBar to the MessageQueue. Then, a thread will loop into this messageQueue
             * and will change the progressBar value.
             * */
+            /*
             Runnable runnable = () -> {
                 for (int i = 0; i <= 10; i++) {
                     final int value = i;
@@ -222,7 +224,7 @@ public class CalculatorActivity extends AppCompatActivity {
             };
             // We create a new thread to run the progressBar
             new Thread(runnable).start();
-
+            */
             // Call asyncTask to change the loading textfield
             dt.execute("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
 
@@ -242,9 +244,10 @@ public class CalculatorActivity extends AppCompatActivity {
      *  the task will pop it from it.
      *  - After all the process, when the task is finished, we will call the onPostExecute function -> to trigger after the resultHandler function.
      * */
-    private class downloadTask extends AsyncTask<String, Integer, Long> {
-        protected Long doInBackground(String... purcentage) {
-            int count = purcentage.length;
+    @SuppressLint("StaticFieldLeak")
+    private class calculateTask extends AsyncTask<String, Integer, Long> {
+        protected Long doInBackground(String... percentages) {
+            int count = percentages.length;
             long totalSize = 0;
             for (int i = 0; i <= count; i++) {
                 try {
@@ -258,12 +261,12 @@ public class CalculatorActivity extends AppCompatActivity {
 
             return totalSize;
         }
+        @RequiresApi(api = Build.VERSION_CODES.N)
         protected void onProgressUpdate(Integer... p) {
-            loadingText.setText((p[0] * 10) + "%");
+            handler.post(() -> progressBar.setProgress(p[0], true));
         }
         protected void onPostExecute(Long result) {
-            Toast.makeText(CalculatorActivity.this, "Finished",
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(CalculatorActivity.this, "Finished", Toast.LENGTH_LONG).show();
         }
     }
 }
