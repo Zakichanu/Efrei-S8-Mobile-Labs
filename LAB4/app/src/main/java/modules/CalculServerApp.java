@@ -1,7 +1,9 @@
-package fr.android.calculator;
+package modules;
 
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import modules.MyCalculusRunnable;
 
 public class CalculServerApp {
     public static double doOp(double op1, double op2, char op) throws Exception

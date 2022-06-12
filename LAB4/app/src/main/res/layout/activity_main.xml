@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalculatorActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="84dp"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="100dp"
+        android:divider="@drawable/empty_divider"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/operationText"
+            android:layout_width="123dp"
+            android:layout_height="40dp"
+            android:background="@drawable/back"
+            android:fontFamily="monospace"
+            android:hint="@string/operation"
+            android:textAlignment="center"
+            android:textColor="@color/purple_500"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@drawable/back"
+            android:fontFamily="monospace"
+            android:hint="@string/result"
+            android:textColor="@color/purple_500"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="87dp"
+
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+        <Button
+            android:id="@+id/buttonSeven"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/_7"
+            android:textAlignment="center"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <Button
+            android:id="@+id/buttonEight"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/_8"
+            android:textAlignment="center"
+            app:layout_column="1"
+            app:layout_row="0" />
+
+        <Button
+            android:id="@+id/buttonNine"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/_9"
+            android:textAlignment="center"
+            app:layout_column="2"
+            app:layout_row="0" />
+
+        <Button
+            android:id="@+id/buttonPlus"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/Plus"
+            android:textAlignment="center"
+            app:layout_column="3"
+            app:layout_row="0" />
+
+        <Button
+            android:id="@+id/buttonFour"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/_4"
+            android:textAlignment="center"
+            app:layout_column="0"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/buttonFive"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/_5"
+            android:textAlignment="center"
+            app:layout_column="1"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/buttonSix"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/_6"
+            android:textAlignment="center"
+            app:layout_column="2"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/buttonMinus"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/sub"
+            android:textAlignment="center"
+            app:layout_column="3"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/buttonOne"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/_1"
+            android:textAlignment="center"
+            app:layout_column="0"
+            app:layout_row="2" />
+
+        <Button
+            android:id="@+id/buttonTwo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/_2"
+            android:textAlignment="center"
+            app:layout_column="1"
+            app:layout_row="2" />
+
+        <Button
+            android:id="@+id/buttonThree"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/_3"
+            android:textAlignment="center"
+            app:layout_column="2"
+            app:layout_row="2" />
+
+        <Button
+            android:id="@+id/buttonMultiply"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/x"
+            android:textAlignment="center"
+            app:layout_column="3"
+            app:layout_row="2" />
+    </androidx.gridlayout.widget.GridLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="87dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout">
+
+        <Button
+            android:id="@+id/buttonZero"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/_0"
+            android:textAlignment="center"
+            app:layout_column="0"
+            app:layout_row="3"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="619dp" />
+
+        <Button
+            android:id="@+id/buttonDiv"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:onClick="operationHandler"
+            android:text="@string/Div"
+            app:layout_column="1"
+            app:layout_row="3"
+            tools:layout_editor_absoluteX="206dp"
+            tools:layout_editor_absoluteY="619dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gridLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/buttonEqual"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".75"
+            android:onClick="callServer"
+            android:text="@string/Equal"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/buttonClear"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".25"
+            android:onClick="eraseHandler"
+            android:text="@string/Clear"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="294dp"
+        android:indeterminate="false"
+        android:max="10"
+        android:padding="4dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"/>
+    <TextView
+        android:id="@+id/loadingText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="@string/LoadingText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar1" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

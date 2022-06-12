@@ -1,4 +1,4 @@
-package fr.android.calculator;
+package modules;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -22,7 +22,7 @@ public class MyCalculusRunnable implements Runnable {
 
             // read op1, op2 and the opreation to make
             // Double op1 = dis.readDouble();
-            // char op = dis.readChar(); 
+            // char op = dis.readChar();
             // Double op2 = dis.readDouble();
             String op = dis.readUTF();
             System.out.println(op);
