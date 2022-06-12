@@ -15,4 +15,4 @@ Pretty basic calculator to begin with layouts and other buch of things + Progres
 
 # [Lab 4](https://github.com/Zakichanu/Efrei-S8-Mobile-Labs/tree/master/LAB4)
 
-Sending result treatment to a server, to have a hand on socket in java language
+Sending result treatment to a server, to have a hand on socket in java language (mostly made by [@azerpas](https://github.com/azerpas))
